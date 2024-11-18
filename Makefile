@@ -6,12 +6,12 @@
 #    By: tsaby <tsaby@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/08 12:50:41 by tsaby             #+#    #+#              #
-#    Updated: 2024/11/18 12:40:09 by tsaby            ###   ########.fr        #
+#    Updated: 2024/11/18 19:40:15 by tsaby            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 SRCS		:= \
-					ft_atoi.c\
+					ft_printf.c\
 
 SRCS_D		:=	#
 
@@ -19,7 +19,7 @@ OBJS_D		:=	objs/
 
 OBJS		:=	$(SRCS:%.c=$(OBJS_D)%.o)
 
-HEAD		:=	libftprintf.h
+HEAD		:=	ft_printf.h
 
 HEAD_D		:= .
 

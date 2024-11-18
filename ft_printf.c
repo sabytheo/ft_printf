@@ -1,29 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printft.c                                       :+:      :+:    :+:   */
+/*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tsaby <tsaby@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/18 12:44:58 by tsaby             #+#    #+#             */
-/*   Updated: 2024/11/18 14:44:55 by tsaby            ###   ########.fr       */
+/*   Updated: 2024/11/18 20:24:04 by tsaby            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 #include <stdio.h>
 
 // NEED FONCTION POUR ANALYSER CE QU'IL Y A APRES LE %
 // FONCTION POUR DEFINIR LES FORMATS   : %c %s %p %d %i %u %x %X %%
 
-void	getafterpercent(va_list args, const char *format, int i, int j)
+int	ft_printchar(int c, int i)
 {
-	return ;
+	i++;
+	write(1, &c, 1);
+	return (i);
 }
-void	getformat(void)
+
+int	ft_printstr(char *s, int i)
 {
-	return ;
+	if (!s)
+		return (ft_printstr("(null)", i));
+	while (*s)
+	{
+		i = ft_printchar(*s, i);
+		s++;
+	}
+	return (i);
 }
+
 int	ft_printf(const char *format, ...)
 {
 	va_list	args;
@@ -31,35 +42,30 @@ int	ft_printf(const char *format, ...)
 	int		j;
 
 	i = 0;
-	j = 0;
+	j = -1;
 	va_start(args, format);
-	while (format[j])
+	while (format[++j])
 	{
 		if (format[j] == '%')
 		{
-			i = getafterpercent(args, format, int i, int j);
-			if (i == 'c')
-				i = getformat();
-			else if (i == 'd')
-				i = getformat();
-			else if (i == 'u')
-				i = getformat();
-			else if (i == 's')
-				i = getformat();
-			else if (i == 'o')
-				i = getformat();
+			j++;
+			if (format[j] == 'c')
+				i = ft_printchar(va_arg(args, int), i);
+			if (format[j] == 's')
+				i = ft_printstr(va_arg(args, char *), i);
 		}
-		j++;
+		else
+		{
+			i = ft_printchar(format[j], i);
+		}
 	}
-	va_end();
+	va_end(args);
 	return (i);
 }
 
-int	main(void)
+/*int	main(void)
 {
-	int	i;
-
-	ft_printf("ploppp\n\n");
-	printf("ploppp\n");
+	ft_printf("my printf --> \n c: %c s: %s  voila ", 'j', "ploplaguilde");
+	printf("\n printf --> \n c: %c s: %s  voila ", 'j', "ploplaguilde");
 	return (0);
-}
+}*/
