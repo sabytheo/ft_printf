@@ -6,7 +6,7 @@
 /*   By: tsaby <tsaby@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/18 12:44:58 by tsaby             #+#    #+#             */
-/*   Updated: 2024/11/18 20:24:04 by tsaby            ###   ########.fr       */
+/*   Updated: 2024/11/19 19:19:44 by tsaby            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,14 @@ int	ft_printstr(char *s, int i)
 	}
 	return (i);
 }
+int	ft_printptr(void *ptr, int i)
+{
+	unsigned long	addr;
+
+	addr = (unsigned long)ptr;
+	i = ;
+	return (i);
+}
 
 int	ft_printf(const char *format, ...)
 {
@@ -53,6 +61,8 @@ int	ft_printf(const char *format, ...)
 				i = ft_printchar(va_arg(args, int), i);
 			if (format[j] == 's')
 				i = ft_printstr(va_arg(args, char *), i);
+			if (format[j] == 'p')
+				i = ft_printptr(va_arg(args, void *), i);
 		}
 		else
 		{
