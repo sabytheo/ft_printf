@@ -6,14 +6,16 @@
 #    By: tsaby <tsaby@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/08 12:50:41 by tsaby             #+#    #+#              #
-#    Updated: 2024/11/18 19:40:15 by tsaby            ###   ########.fr        #
+#    Updated: 2024/11/21 18:05:18 by tsaby            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 SRCS		:= \
 					ft_printf.c\
+					ft_itoa.c\
+					ft_strlen.c\
 
-SRCS_D		:=	#
+SRCS_D		:=	src/
 
 OBJS_D		:=	objs/
 

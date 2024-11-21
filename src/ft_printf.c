@@ -6,7 +6,7 @@
 /*   By: tsaby <tsaby@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/18 12:44:58 by tsaby             #+#    #+#             */
-/*   Updated: 2024/11/20 20:18:23 by tsaby            ###   ########.fr       */
+/*   Updated: 2024/11/21 18:07:35 by tsaby            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,7 @@
 
 int	ft_printchar(int c, int i)
 {
-	i++;
-	write(1, &c, 1);
-	return (i);
+	return (i += write(1, &c, 1));
 }
 
 int	ft_printstr(char *s, int i)
@@ -33,11 +31,16 @@ int	ft_printstr(char *s, int i)
 	}
 	return (i);
 }
+// int	ft_printdigital(int nbr, int i)
+// {
+
+// }
 int	ft_printptr(void *ptr, int i)
 {
 	unsigned long	addr;
-	char			*base = "0123456789abcdef";
+	char			*base;
 
+	base = "0123456789abcdef";
 	if (!ptr)
 		return (ft_printstr("(nil)", i));
 	addr = (unsigned long)ptr;
@@ -52,10 +55,10 @@ int	ft_printf(const char *format, ...)
 	va_list	args;
 	int		i;
 	int		j;
+	void	*ptr;
 
 	i = 0;
 	j = -1;
-
 	va_start(args, format);
 	while (format[++j])
 	{
@@ -68,9 +71,19 @@ int	ft_printf(const char *format, ...)
 				i = ft_printstr(va_arg(args, char *), i);
 			if (format[j] == 'p')
 			{
-				ft_printstr("0x", i);
-				i = (ft_printptr(va_arg(args, void *), i) + 3);
+				ptr = va_arg(args, void *);
+				if (!ptr)
+					i = ft_printstr("(nil)", i);
+				else
+				{
+					i = ft_printstr("0x", i);
+					i = ((ft_printptr(ptr, i)));
+				}
 			}
+			// if (format[j] == 'd')
+			// {
+			// 	i = ft_printdigital(va_arg(args, int), i);
+			// }
 		}
 		else
 		{
@@ -81,16 +94,15 @@ int	ft_printf(const char *format, ...)
 	return (i);
 }
 
-int	main(void)
-{
+// int	main(void)
+// {
+// 	int	a;
+// 	int	b;
 
-	int a;
-	int b;
-
-	 a = ft_printf("my printf --> \n c: %c s: %s p: %p voila ", 'j', "ploplaguilde", 15);
-	 b = printf("son printf --> \n c: %c s: %s p: %p voila ", 'j', "ploplaguilde", 15);
-
-
-	printf("\nmon printf a = %i  \n  le vrai b = %i \n", a, b);
-	return (0);
-}
+// 	a = ft_printf("my printf --> \n c: %c s: %s p: %p voila ", 'j',
+// 			"ploplaguilde", 0);
+// 	b = printf("on printf --> \n c: %c s: %s p: %p voila ", 'j', "ploplaguilde",
+// 			0);
+// 	printf("\nmon printf a = %i  \n  le vrai b = %i \n", a, b);
+// 	return (0);
+// }
