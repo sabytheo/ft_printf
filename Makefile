@@ -6,7 +6,7 @@
 #    By: tsaby <tsaby@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/08 12:50:41 by tsaby             #+#    #+#              #
-#    Updated: 2024/11/21 18:05:18 by tsaby            ###   ########.fr        #
+#    Updated: 2024/11/22 10:58:26 by tsaby            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,7 @@ OBJS		:=	$(SRCS:%.c=$(OBJS_D)%.o)
 
 HEAD		:=	ft_printf.h
 
-HEAD_D		:= .
+HEAD_D		:=	lib/
 
 CFLAGS		:= -Wall -Wextra -Werror
 
