@@ -6,11 +6,11 @@
 /*   By: tsaby <tsaby@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 13:56:51 by tsaby             #+#    #+#             */
-/*   Updated: 2024/11/21 18:10:25 by tsaby            ###   ########.fr       */
+/*   Updated: 2024/11/22 11:14:46 by tsaby            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "../ft_printf.h"
 
 size_t	ft_strlen(const char *str)
 {

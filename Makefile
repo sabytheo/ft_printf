@@ -6,7 +6,7 @@
 #    By: tsaby <tsaby@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/08 12:50:41 by tsaby             #+#    #+#              #
-#    Updated: 2024/11/22 10:58:26 by tsaby            ###   ########.fr        #
+#    Updated: 2024/11/22 14:04:04 by tsaby            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,6 +14,9 @@ SRCS		:= \
 					ft_printf.c\
 					ft_itoa.c\
 					ft_strlen.c\
+					ft_uitoa.c\
+					ft_itoahex.c\
+					ft_printf_2.c\
 
 SRCS_D		:=	src/
 
@@ -23,7 +26,7 @@ OBJS		:=	$(SRCS:%.c=$(OBJS_D)%.o)
 
 HEAD		:=	ft_printf.h
 
-HEAD_D		:=	lib/
+HEAD_D		:=	.
 
 CFLAGS		:= -Wall -Wextra -Werror
 

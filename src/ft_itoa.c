@@ -6,11 +6,11 @@
 /*   By: tsaby <tsaby@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/08 15:34:36 by tsaby             #+#    #+#             */
-/*   Updated: 2024/11/21 18:10:39 by tsaby            ###   ########.fr       */
+/*   Updated: 2024/11/22 13:00:37 by tsaby            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "../ft_printf.h"
 
 static int	ft_strlonlen(long nb)
 {
